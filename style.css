@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background-image: url("images/mutfak.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.screen {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.chef-img {
+  width: 150px;
+  transition: all 0.8s ease;
+}
+
+.chef-fixed {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 80px;
+}
+
+.player-name {
+  position: absolute;
+  top: 20px;
+  left: 120px;
+  font-weight: bold;
+  background-color: #ffffffcc;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.name-form {
+  text-align: center;
+  font-size: 18px;
+}
+
+.name-form input {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  margin: 10px 0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.name-form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3a35ca;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.game-area {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.bowl {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  z-index: 1;
+}
+
+.effect-image {
+  position: absolute;
+  bottom: 220px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+#sut-panel {
+  position: absolute;
+  top: 60px;
+  right: 30px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+  border-radius: 20px;
+  background-color: #ffffffcc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 250px;
+  z-index: 10;
+}
+
+.sut-option {
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.sut-option img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.sut-option:hover {
+  transform: translateY(-5px);
+}
+
+.normal-sut { background-color: #4a90e2; }
+.yulaf-sutu { background-color: #f5a623; }
+.ceviz-sutu { background-color: #7ed321; }
+
+.dolap-button {
+  position: absolute;
+  right: 40px;
+  top: 250px;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #4a90e2;
+  border: 2px solid #4a90e2;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.sol-dolap-button {
+  position: absolute;
+  bottom: 190px;
+  left: calc(50% - 300px);
+  font-size: 13px;
+  padding: 6px 12px;
+  background-color: transparent;
+  color: #4a90e2;
+  border: 2px solid #4a90e2;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.dolap-panel, .sol-dolap-panel {
+  position: absolute;
+  top: 320px;
+  background-color: rgba(125, 143, 222, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 0 10px #4568cf33;
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 2;
+}
+
+.dolap-panel {
+  right: 30px;
+}
+
+.sol-dolap-panel {
+  left: 30px;
+}
+
+.dolap-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  background-color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 10px;
+  transition: transform 0.4s ease;
+}
+
+.dolap-item:hover {
+  transform: scale(1.05);
+}
+
+.dolap-item img {
+  width: 40px;
+  height: 40px;
+}
+
+.buttons {
+  position: absolute;
+  bottom: 20px;
+  left: calc(100% - 200px); /* sola 2 katı kadar kaydırıldı */
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.buttons button {
+  background-color: #ffed4d;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button.reset {
+  background-color: #f55;
+  color: white;
+}
+
+
+#tarif-sonucu {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff8;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-align: center;
+}

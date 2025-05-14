@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yemek Yapma Oyunu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="start-screen" class="screen">
+    <h1 class="title">👩‍🍳 Yemek yapmaya hazır mısın?</h1>
+    <img src="images/sef.png" alt="Şef" class="chef-img" id="start-chef" />
+    <div class="name-form">
+      <label for="username">Adın ne?</label><br />
+      <input type="text" id="username" placeholder="Adını yaz..." />
+      <br />
+      <button onclick="startGame()">Başla</button>
+    </div>
+  </div>
+
+  <div id="game-screen" class="game-area" style="display:none;">
+    <img src="images/sef.png" class="chef-img chef-fixed" />
+    <div id="player-name" class="player-name"></div>
+
+    <!-- Dolap Butonları -->
+    <button class="dolap-button" onclick="toggleDolap()">Dolabı Aç</button>
+    <button class="sol-dolap-button" onclick="toggleSolDolap()">Dolabı Aç</button>
+
+    <!-- Kase ve efekt -->
+    <img src="images/kase.png" alt="Kase" class="bowl" />
+    <img id="effect-image" src="" class="effect-image" />
+
+    <!-- Sağ dolap -->
+    <div id="dolap-panel" class="dolap-panel">
+      <div class="dolap-item" onclick="openSutPanel()"><img src="images/sut.png" alt="Süt">Süt</div>
+      <div class="dolap-item" onclick="addToBowl('kirik-yumurta.png')"><img src="images/yumurta.png" alt="Yumurta">Yumurta</div>
+      <div class="dolap-item" onclick="addToBowl('dogranmis-cilek.png')"><img src="images/cilek.png" alt="Çilek">Çilek</div>
+      <div class="dolap-item" onclick="addToBowl('dogranmis-muz.png')"><img src="images/muz.png" alt="Muz">Muz</div>
+      <div class="dolap-item" onclick="addToBowl('dogranmis-elma.png')"><img src="images/elma.png" alt="Elma">Elma</div>
+    </div>
+
+    <!-- Sol dolap -->
+    <div id="sol-dolap-panel" class="sol-dolap-panel">
+      <div class="dolap-item" onclick="addToBowl('dokulmus-un.png')"><img src="images/un.png" alt="Un">Un</div>
+      <div class="dolap-item" onclick="addToBowl('dokulmus-seker.png')"><img src="images/seker.png" alt="Şeker">Şeker</div>
+      <div class="dolap-item" onclick="addToBowl('dokulmus-seker.png')"><img src="images/kabartma-tozu.png" alt="Kabartma Tozu">Kabartma Tozu</div>
+      <div class="dolap-item" onclick="addToBowl('dokulmus-cikolata.png')"><img src="images/cikolata.png" alt="Çikolata">Çikolata</div>
+    </div>
+
+    <!-- Süt Paneli -->
+    <div id="sut-panel">
+      <div class="sut-option normal-sut" onclick="addToBowl('sut-dokulmus.png')">
+        <img src="images/inek.png" alt="İnek"> Normal Süt
+      </div>
+      <div class="sut-option yulaf-sutu" onclick="addToBowl('sut-dokulmus.png')">
+        <img src="images/yulaf.png" alt="Yulaf"> Yulaf Sütü
+      </div>
+      <div class="sut-option ceviz-sutu" onclick="addToBowl('sut-dokulmus.png')">
+        <img src="images/ceviz.png" alt="Ceviz"> Hindistan Cevizi Sütü
+      </div>
+    </div>
+
+    <!-- Butonlar -->
+    <div class="buttons">
+      <button onclick="cookRecipe()">Pişir</button>
+      <button onclick="resetRecipe()" class="reset">Tarifi Temizle</button>
+    </div>
+
+    <!-- Sonuç ve Tarif -->
+    <img id="result-image" src="" style="display:none; position:absolute; bottom:50px; left:50%; transform:translateX(-50%); width:200px;">
+    <p id="tarif-sonucu"></p>
+
+    <!-- Malzeme Sayacı -->
+    <div id="malzeme-sayaci" style="
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff8;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-weight: bold;
+    ">
+      Malzeme: 0 / 7
+    </div>
+
+    <!-- Tarif Geçmişi -->
+    <div id="tarif-gecmisi" style="
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #fff8;
+      padding: 10px;
+      border-radius: 10px;
+      max-width: 300px;
+    ">
+      <h3>Tarif Geçmişi</h3>
+      <ul id="history-list" style="margin:0; padding-left:18px;"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
