@@ -33,4 +33,4 @@ To practice basic front-end development concepts and create an interactive user 
 
 ---
 
-👩‍💻 Developed by Azra
+👩‍💻 Developed by Azra Sugeç
